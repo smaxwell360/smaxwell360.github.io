@@ -1,252 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Product Operations</title>
-    <style>
-        :root {
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --text-main: #212529;
-            --text-muted: #6c757d;
-            --accent: #0066cc;
-            --border: #e9ecef;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operations Experience — Scott Maxwell</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Nav */
-        nav {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+  :root {
+    --ink: #1a1a18;
+    --ink-muted: #6b6b62;
+    --ink-faint: #a8a89e;
+    --surface: #faf9f6;
+    --surface-raised: #ffffff;
+    --border: #e4e2da;
+    --border-strong: #c8c5bb;
 
-        nav .logo { font-weight: 700; font-size: 1.2rem; color: var(--text-main); text-decoration: none; }
-        nav ul { list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0; }
-        nav ul li { position: relative; }
-        nav ul li a { text-decoration: none; color: var(--text-muted); font-weight: 500; padding: 0.5rem 0; display: block; }
-        nav ul li a:hover, nav ul li a.active { color: var(--accent); }
-        
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            min-width: 160px;
-            padding: 0.5rem 0;
-            list-style: none;
-        }
-        .dropdown-menu li a { padding: 0.5rem 1rem; font-size: 0.9rem; color: var(--text-main); }
-        .dropdown-menu li a:hover { background-color: var(--bg-color); color: var(--accent); }
-        nav ul li:hover .dropdown-menu { display: block; }
+    --teal-bg: #e1f5ee;
+    --teal-mid: #1d9e75;
+    --teal-dark: #085041;
 
-        /* Main layout */
-        .container {
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
+    --blue-bg: #e6f1fb;
+    --blue-mid: #185fa5;
+    --blue-dark: #0c447c;
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .back-link:hover { color: var(--accent); }
+    --purple-bg: #eeedfe;
+    --purple-mid: #534ab7;
+    --purple-dark: #3c3489;
 
-        header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; letter-spacing: -0.04rem; }
-        header p { font-size: 1.1rem; color: var(--text-muted); margin-top: 0; margin-bottom: 3rem; }
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
 
-        /* Case Study Container */
-        .case-study {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-        }
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+  }
 
-        .case-study h2 { margin-top: 0; font-size: 1.6rem; color: var(--text-main); }
-        .case-study .subtitle { color: var(--text-muted); font-size: 1rem; margin-top: -0.5rem; margin-bottom: 1rem; font-weight: 500; }
-        
-        /* Metadata/Tags Bar */
-        .meta-tags {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .tag {
-            background: var(--bg-color);
-            border: 1px solid var(--border);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
+  body {
+    font-family: var(--font-body);
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 3rem 1.5rem 5rem;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        /* Core Sections */
-        .study-section { margin-bottom: 1.5rem; }
-        .study-section h3 { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05rem; }
-        .study-section p { margin: 0; color: #444; }
+  .section-wrapper {
+    max-width: 820px;
+    margin: 0 auto;
+  }
 
-        /* Highlighted Metrics/Results Box */
-        .results-box {
-            background-color: #f0f7ff;
-            border-left: 4px solid var(--accent);
-            padding: 1rem 1.5rem;
-            margin-top: 1.5rem;
-            border-radius: 0 6px 6px 0;
-            display: flex;
-            gap: 2rem;
-        }
-        .metric-item { display: flex; flex-direction: column; }
-        .metric-val { font-size: 1.8rem; font-weight: 700; color: var(--accent); line-height: 1.2; }
-        .metric-label { font-size: 0.85rem; color: #1c3d5a; font-weight: 500; }
+  .section-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+  }
 
-        footer { text-align: center; padding: 2rem 0; color: var(--text-muted); font-size: 0.85rem; }
-    </style>
+  .section-eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.15;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--ink-muted);
+  }
+
+  .section-desc {
+    margin-top: 0.85rem;
+    font-size: 15px;
+    color: var(--ink-muted);
+    font-weight: 300;
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* ── Cards ── */
+  .story-card {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2.25rem;
+    margin-bottom: 1.75rem;
+    position: relative;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .story-card:hover {
+    border-color: var(--border-strong);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+  }
+
+  .card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  }
+
+  .accent-teal  { background: var(--teal-mid); }
+  .accent-blue  { background: var(--blue-mid); }
+  .accent-purple { background: var(--purple-mid); }
+
+  .card-inner { padding-left: 0.5rem; }
+
+  /* header row */
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+
+  .icon-teal   { background: var(--teal-bg);   color: var(--teal-dark); }
+  .icon-blue   { background: var(--blue-bg);   color: var(--blue-dark); }
+  .icon-purple { background: var(--purple-bg); color: var(--purple-dark); }
+
+  .card-meta { flex: 1; }
+
+  .card-company {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 3px;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  /* tags */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1.25rem;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+  }
+
+  .tag-teal   { background: var(--teal-bg);   color: var(--teal-dark);   border-color: #9fe1cb; }
+  .tag-blue   { background: var(--blue-bg);   color: var(--blue-dark);   border-color: #b5d4f4; }
+  .tag-purple { background: var(--purple-bg); color: var(--purple-dark); border-color: #cecbf6; }
+
+  /* metrics */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  .metric {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1rem;
+    text-align: center;
+  }
+
+  .metric-val {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .mv-teal   { color: var(--teal-mid); }
+  .mv-blue   { color: var(--blue-mid); }
+  .mv-purple { color: var(--purple-mid); }
+
+  .metric-lbl {
+    display: block;
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  /* divider */
+  .card-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-bottom: 1.25rem;
+  }
+
+  /* narrative */
+  .narrative {
+    font-size: 15px;
+    color: var(--ink-muted);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* responsive */
+  @media (max-width: 600px) {
+    body { padding: 2rem 1rem 4rem; }
+    .story-card { padding: 1.5rem 1.25rem 1.5rem 1.5rem; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .card-title { font-size: 1.1rem; }
+  }
+</style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="logo">My Portfolio</a>
-        <ul>
-            <li>
-                <a href="#" class="active">Projects ▾</a>
-                <ul class="dropdown-menu">
-                    <li><a href="operations.html">Product Operations</a></li>
-                </ul>
-            </li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+<section class="section-wrapper">
 
-    <div class="container">
-        <a href="index.html" class="back-link">&larr; Back to Home</a>
-        
-        <header>
-            <h1>Product Operations &amp; Execution</h1>
-            <p>Showcasing frameworks, cross-functional infrastructure initiatives, and data-driven process optimization.</p>
-        </header>
+  <header class="section-header">
+    <p class="section-eyebrow">Professional experience</p>
+    <h2 class="section-title">Operations that <em>delivered.</em></h2>
+    <p class="section-desc">A selection of high-stakes programs and outcomes spanning AI deployment, public health infrastructure, and global team scale.</p>
+  </header>
 
-        <main>
-            <!-- Case Study 1 -->
-            <div class="case-study">
-                <h2>Scaling Global Operations Through a Volume Surge</h2>
-                <div class="subtitle">Cision &bull; Global Content Operations</div>
-                
-                <div class="meta-tags">
-                    <span class="tag">Scaling Operations</span>
-                    <span class="tag">Global Teams</span>
-                    <span class="tag">Demand Management</span>
-                </div>
+  <!-- ── Card 1: Cision ── -->
+  <article class="story-card">
+    <div class="card-accent accent-teal"></div>
+    <div class="card-inner">
+      <div class="card-header">
+        <div class="card-icon icon-teal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <div class="card-meta">
+          <p class="card-company">Cision (formerly Vocus) &nbsp;·&nbsp; Global Content Operations</p>
+          <h3 class="card-title">Scaling global operations through an 820% volume surge</h3>
+        </div>
+      </div>
 
-                <div class="study-section">
-                    <h3>The Narrative</h3>
-                    <p>When demand for content operations at Cision surged by 820% — far beyond what existing capacity could absorb — I led the rapid scaling response. Recognizing that domestic resources alone couldn't close the gap quickly enough, I architected and built out a Philippines-based operations team, managing the full pipeline from hiring and onboarding to workflow integration. The result was a seamless capacity expansion that matched throughput to demand without sacrificing quality or delivery timelines — keeping operations running at full speed through one of the most intense growth periods the team had seen.</p>
-                </div>
+      <div class="tag-row">
+        <span class="tag tag-teal">Global team scaling</span>
+        <span class="tag tag-teal">Quality management</span>
+        <span class="tag tag-teal">Offshore operations</span>
+      </div>
 
-                <div class="results-box">
-                    <div class="metric-item">
-                        <span class="metric-val">820%</span>
-                        <span class="metric-label">Volume Increase</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-val">Global</span>
-                        <span class="metric-label">Team Expansion</span>
-                    </div>
-                </div>
-            </div>
+      <div class="metrics-grid">
+        <div class="metric"><span class="metric-val mv-teal">820%</span><span class="metric-lbl">Volume increase</span></div>
+        <div class="metric"><span class="metric-val mv-teal">300→2,300+</span><span class="metric-lbl">Daily submissions</span></div>
+        <div class="metric"><span class="metric-val mv-teal">60+</span><span class="metric-lbl">Global team built</span></div>
+        <div class="metric"><span class="metric-val mv-teal">24/7</span><span class="metric-lbl">Coverage achieved</span></div>
+      </div>
 
-            <!-- Case Study 2 -->
-            <div class="case-study">
-                <h2>Delivering Maryland's Statewide COVID-19 Contact Tracing Platform</h2>
-                <div class="subtitle">Enovational &bull; Public Health Infrastructure</div>
-                
-                <div class="meta-tags">
-                    <span class="tag">Cross-Functional Delivery</span>
-                    <span class="tag">Stakeholder Management</span>
-                    <span class="tag">High-Stakes Programs</span>
-                </div>
+      <hr class="card-divider">
 
-                <div class="study-section">
-                    <h3>The Narrative</h3>
-                    <p>At the height of the COVID-19 pandemic, Maryland needed a reliable, scalable contact tracing platform — fast. I led the end-to-end delivery of covidLINK, coordinating across multiple state agencies, technical teams, and public health stakeholders under significant time pressure. The challenge wasn't just building the platform — it was navigating competing priorities, aligning diverse stakeholders on a unified approach, and ensuring the system was actually adopted in the field. covidLINK achieved 97% statewide adoption, making it one of the most successful public health technology deployments in the state's history and a model for rapid, cross-agency operational execution.</p>
-                </div>
-
-                <div class="results-box">
-                    <div class="metric-item">
-                        <span class="metric-val">97%</span>
-                        <span class="metric-label">Statewide Adoption</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-val">Multi-Agency</span>
-                        <span class="metric-label">Coordination</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Case Study 3 -->
-            <div class="case-study">
-                <h2>Rolling Out AI Automation Across a 29-Plant Enterprise</h2>
-                <div class="subtitle">Mainstay &bull; AI SaaS &amp; Enterprise Operations</div>
-                
-                <div class="meta-tags">
-                    <span class="tag">AI Implementation</span>
-                    <span class="tag">Enterprise Rollout</span>
-                    <span class="tag">Revenue Impact</span>
-                </div>
-
-                <div class="study-section">
-                    <h3>The Narrative</h3>
-                    <p>When GREIF — a global industrial packaging company — signed on to deploy Mainstay's AI chatbot platform across its manufacturing operations, the implementation scope was substantial: 29 plants, diverse workforces, and a high bar for performance. I led the full rollout, managing everything from configuration and stakeholder alignment to go-live support across all sites. The deployment achieved a 74% autonomous resolution rate, meaning nearly three-quarters of employee inquiries were handled entirely by the AI without human escalation. Beyond operational performance, the engagement directly contributed to $1.5M in ARR — demonstrating that thoughtful, well-executed AI implementation delivers measurable business value at scale.</p>
-                </div>
-
-                <div class="results-box">
-                    <div class="metric-item">
-                        <span class="metric-val">74%</span>
-                        <span class="metric-label">Autonomous Resolution</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-val">$1.5M</span>
-                        <span class="metric-label">ARR Contribution</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-val">29</span>
-                        <span class="metric-label">Plants Deployed</span>
-                    </div>
-                </div>
-            </div>
-        </main>
+      <p class="narrative">When Vocus went viral following a new software launch, daily content submissions exploded from 300 to over 2,300 — an 820% surge that a team of 5–7 simply couldn't absorb. Domestic hiring alone wasn't going to close the gap fast enough, and 24/7 global coverage was a requirement, not a nice-to-have. I made the case for building a 40-person remote operation in the Philippines, personally owning the training curriculum to ensure Manila output was indistinguishable from US output — not close, indistinguishable. I built weekly QA audits with structured comparisons across the same submission types, required rework when output missed the bar, and fed every pattern back into training. Simultaneously, I scaled the US team from 5 to 15 using a structured mentorship model built by top performers. The result: a global team of 60+ that sustained the volume increase without a single degradation in quality scores, 24/7 coverage for international customers, and a Manila operation that became the most efficient part of the entire global team — with junior hires eventually moving into senior leadership roles.</p>
     </div>
+  </article>
 
-    <footer>
-        &copy; 2026 Built with GitHub Pages.
-    </footer>
+  <!-- ── Card 2: Enovational ── -->
+  <article class="story-card">
+    <div class="card-accent accent-blue"></div>
+    <div class="card-inner">
+      <div class="card-header">
+        <div class="card-icon icon-blue">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="card-meta">
+          <p class="card-company">Enovational &nbsp;·&nbsp; Public Health Infrastructure</p>
+          <h3 class="card-title">Delivering Maryland's statewide COVID-19 contact tracing platform</h3>
+        </div>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag tag-blue">Cross-functional delivery</span>
+        <span class="tag tag-blue">Stakeholder management</span>
+        <span class="tag tag-blue">Crisis execution</span>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric"><span class="metric-val mv-blue">97%</span><span class="metric-lbl">User adoption in 30 days</span></div>
+        <div class="metric"><span class="metric-val mv-blue">1,700</span><span class="metric-lbl">Healthcare users onboarded</span></div>
+        <div class="metric"><span class="metric-val mv-blue">26</span><span class="metric-lbl">Health depts coordinated</span></div>
+        <div class="metric"><span class="metric-val mv-blue">4 mo.</span><span class="metric-lbl">Design to launch</span></div>
+      </div>
+
+      <hr class="card-divider">
+
+      <p class="narrative">Maryland needed a statewide COVID-19 contact tracing platform in four months, with no playbook, shifting state requirements, and an engineering team already at capacity. I sat between state government and a technical team and owned everything: scrum facilitation, stakeholder alignment, training, and onboarding for all 1,700 users across 26 local health departments. Mid-development, senior state officials pushed to add a complex case management suite — a scope change that my engineering velocity data showed would blow the deadline or ship an unstable product. Rather than just pushing back, I built an explicit trade-off document and reframed the conversation: this wasn't a "no," it was a sequencing decision. We'd nail the core platform for launch and deliver case management as a fast-follow in Phase 2. The platform launched on every critical deadline, achieved 97% user adoption within 30 days, restored the 48-hour contact tracing window that public health depended on, and two struggling local health departments cleared their backlogs within the first week. Phase 2 was delivered on a more stable foundation — and we came out with more trust from state leadership than we started with.</p>
+    </div>
+  </article>
+
+  <!-- ── Card 3: Mainstay ── -->
+  <article class="story-card">
+    <div class="card-accent accent-purple"></div>
+    <div class="card-inner">
+      <div class="card-header">
+        <div class="card-icon icon-purple">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 10h.01M11 10h2M7 13h6"/></svg>
+        </div>
+        <div class="card-meta">
+          <p class="card-company">Mainstay &nbsp;·&nbsp; AI SaaS &amp; Enterprise Operations</p>
+          <h3 class="card-title">Rolling out AI automation across a 29-plant enterprise in 4 weeks</h3>
+        </div>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag tag-purple">AI implementation</span>
+        <span class="tag tag-purple">Enterprise rollout</span>
+        <span class="tag tag-purple">Process innovation</span>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric"><span class="metric-val mv-purple">74%</span><span class="metric-lbl">Autonomous resolution at launch</span></div>
+        <div class="metric"><span class="metric-val mv-purple">99%</span><span class="metric-lbl">Accuracy through iteration</span></div>
+        <div class="metric"><span class="metric-val mv-purple">29</span><span class="metric-lbl">Plants deployed</span></div>
+        <div class="metric"><span class="metric-val mv-purple">~60%</span><span class="metric-lbl">Faster than standard process</span></div>
+      </div>
+
+      <hr class="card-divider">
+
+      <p class="narrative">GREIF, a global industrial packaging manufacturer, needed Mainstay's AI chatbot deployed across 29 factory locations within a 6-month pilot window — but our standard implementation process averaged 2–3 months of discovery per location. The math didn't work, plant managers were unavailable, and renegotiating the timeline wasn't an option. I recognized that the standard discovery model was wrong for this constraint. Instead of waiting on location-specific input that would never arrive, I deployed a generalized "Seed" knowledge base simultaneously across all 29 plants — covering core company information — and used incoming employee queries from day one as live discovery data. I monitored message logs across all locations in parallel, patched the highest-frequency gaps first, and ignored edge cases in favor of the 80% that mattered most (call-out procedures, supervisor contacts, shift schedules). All 29 plants were live in 4 weeks — roughly 60% faster than the standard process — with a 74% autonomous resolution rate at launch. Through continued iteration, accuracy climbed to 99%. The approach directly contributed to $1.5M ARR and became the repeatable multi-site deployment playbook for all future enterprise launches.</p>
+    </div>
+  </article>
+
+</section>
 
 </body>
 </html>

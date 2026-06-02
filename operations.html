@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Product Operations</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #212529;
+            --text-muted: #6c757d;
+            --accent: #0066cc;
+            --border: #e9ecef;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Nav (Matches homepage structure) */
+        nav {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo { font-weight: 700; font-size: 1.2rem; color: var(--text-main); text-decoration: none; }
+        nav ul { list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0; }
+        nav ul li { position: relative; }
+        nav ul li a { text-decoration: none; color: var(--text-muted); font-weight: 500; padding: 0.5rem 0; display: block; }
+        nav ul li a:hover, nav ul li a.active { color: var(--accent); }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            min-width: 160px;
+            padding: 0.5rem 0;
+            list-style: none;
+        }
+        .dropdown-menu li a { padding: 0.5rem 1rem; font-size: 0.9rem; color: var(--text-main); }
+        .dropdown-menu li a:hover { background-color: var(--bg-color); color: var(--accent); }
+        nav ul li:hover .dropdown-menu { display: block; }
+
+        /* Main layout */
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .back-link:hover { color: var(--accent); }
+
+        header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; letter-spacing: -0.04rem; }
+        header p { font-size: 1.1rem; color: var(--text-muted); margin-top: 0; margin-bottom: 3rem; }
+
+        /* Case Study Container */
+        .case-study {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .case-study h2 { margin-top: 0; font-size: 1.6rem; color: var(--text-main); }
+        
+        /* Metadata/Tags Bar */
+        .meta-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: var(--bg-color);
+            border: 1px solid var(--border);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        /* Core Sections */
+        .study-section { margin-bottom: 1.5rem; }
+        .study-section h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05rem; }
+        .study-section p { margin: 0; color: #444; }
+
+        /* Highlighted Metrics/Results Box */
+        .results-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 0 6px 6px 0;
+        }
+        .results-box h4 { margin: 0 0 0.25rem 0; color: var(--accent); font-size: 1rem; }
+        .results-box p { margin: 0; font-weight: 500; color: #1c3d5a; }
+
+        footer { text-align: center; padding: 2rem 0; color: var(--text-muted); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">My Portfolio</a>
+        <ul>
+            <li>
+                <a href="#" class="active">Projects ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="operations.html">Product Operations</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+        
+        <header>
+            <h1>Product Operations & Execution</h1>
+            <p>Showcasing frameworks, cross-functional infrastructure initiatives, and data-driven process optimization.</p>
+        </header>
+
+        <main>
+            <!-- Case Study 1 -->
+            <div class="case-study">
+                <h2>Process Automation & Scale Initiative</h2>
+                
+                <div class="meta-tags">
+                    <span class="tag">Process Mapping</span>
+                    <span class="tag">Cross-Functional Strategy</span>
+                    <span class="tag">Data Analytics</span>
+                </div>
+
+                <div class="study-section">
+                    <h3>The Challenge</h3>
+                    <p>Briefly describe the operational bottleneck, complex coordination issues, or scaling friction the business faced here.</p>
+                </div>
+
+                <div class="study-section">
+                    <h3>The Strategy & Execution</h3>
+                    <p>Detail how you organized the framework, aligned teams, or mapped workflows to address the core problem systematically.</p>
+                </div>
+
+                <div class="results-box">
+                    <h4>Key Business Impact</h4>
+                    <p>Quantifiable outcome or structural improvement goes here (e.g., Reduced execution cycles by X% / Saved X hours per sprint).</p>
+                </div>
+            </div>
+
+            <!-- Case Study 2 Template -->
+            <div class="case-study">
+                <h2>Cross-Functional Alignment Framework</h2>
+                
+                <div class="meta-tags">
+                    <span class="tag">Documentation</span>
+                    <span class="tag">Tool Integration</span>
+                    <span class="tag">Change Management</span>
+                </div>
+
+                <div class="study-section">
+                    <h3>The Challenge</h3>
+                    <p>Explain the misalignment, communications gaps, or legacy system dependencies that required an operational intervention.</p>
+                </div>
+
+                <div class="study-section">
+                    <h3>The Strategy & Execution</h3>
+                    <p>Explain the implementation of new playbooks, centralized data structures, or optimized feedback loops designed to streamline scaling efforts.</p>
+                </div>
+
+                <div class="results-box">
+                    <h4>Key Business Impact</h4>
+                    <p>Achieved 100% team adoption within the quarter, significantly accelerating delivery predictability across tracking metrics.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2026 Built with GitHub Pages.
+    </footer>
+
+</body>
+</html>

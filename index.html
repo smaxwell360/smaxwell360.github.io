@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Home</title>
     <style>
-        /* Base Styling & Typography */
         :root {
             --bg-color: #f8f9fa;
             --card-bg: #ffffff;
@@ -24,7 +23,7 @@
             padding: 0;
         }
 
-        /* Navigation Bar (Scalable for future sub-pages) */
+        /* Navigation Bar & Dropdown Layout */
         nav {
             background-color: var(--card-bg);
             border-bottom: 1px solid var(--border);
@@ -52,57 +51,67 @@
             padding: 0;
         }
 
+        nav ul li {
+            position: relative;
+        }
+
         nav ul li a {
             text-decoration: none;
             color: var(--text-muted);
             font-weight: 500;
             transition: color 0.2s;
+            display: block;
+            padding: 0.5rem 0;
         }
 
         nav ul li a:hover, nav ul li a.active {
             color: var(--accent);
         }
 
-        /* Main Container */
+        /* Dropdown Menu Styling */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            min-width: 160px;
+            padding: 0.5rem 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .dropdown-menu li a {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: var(--bg-color);
+            color: var(--accent);
+        }
+
+        /* Show dropdown on hover */
+        nav ul li:hover .dropdown-menu {
+            display: block;
+        }
+
         .container {
             max-width: 960px;
             margin: 3rem auto;
             padding: 0 1.5rem;
         }
 
-        /* Hero / Introduction Section */
-        header {
-            margin-bottom: 4rem;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.05rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-top: 0;
-        }
-
-        /* Project Section & Grid Layout */
-        .section-title {
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Project Cards (Text heavy now, ready for imagery later) */
+        header { margin-bottom: 4rem; }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: -0.05rem; }
+        header p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-top: 0; }
+        .section-title { font-size: 1.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 2rem; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -114,107 +123,47 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        /* Placeholder for future images (Hidden for now, just uncomment when ready) */
-        /* 
-        .project-image {
-            width: 100%;
-            height: 180px;
-            background: #eee;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-        */
-
-        .project-card h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.3rem;
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .project-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 4rem 0 2rem 0;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
+        .project-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .project-card h3 { margin: 0 0 0.5rem 0; font-size: 1.3rem; }
+        .project-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
+        .project-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        .project-link:hover { text-decoration: underline; }
+        footer { text-align: center; padding: 4rem 0 2rem 0; color: var(--text-muted); font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
-    <!-- Scalable Header Navigation -->
     <nav>
-        <a href="#" class="logo">My Portfolio</a>
+        <a href="index.html" class="logo">My Portfolio</a>
         <ul>
-            <li><a href="#" class="active">Projects</a></li>
+            <li>
+                <a href="#" class="active">Projects ▾</a>
+                <!-- New Dropdown Menu -->
+                <ul class="dropdown-menu">
+                    <li><a href="operations.html">Product Operations</a></li>
+                </ul>
+            </li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
     <div class="container">
-        <!-- Hero Section -->
         <header>
             <h1>Hi, I'm a Portfolio Owner.</h1>
             <p>Focusing on strategy, execution, and data-driven project management.</p>
         </header>
 
-        <!-- Projects Grid -->
         <main>
-            <h2 class="section-title">Selected Projects</h2>
+            <h2 class="section-title">Featured Highlights</h2>
             <div class="project-grid">
-                
-                <!-- Project Card 1 -->
                 <div class="project-card">
                     <div>
-                        <h3>Project One Title</h3>
-                        <p>A data-heavy analysis focusing on process optimization, metrics tracking, and cross-functional execution strategy to improve system output.</p>
+                        <h3>Product Operations Overview</h3>
+                        <p>A deep dive into cross-functional execution frameworks, process automation, and scale strategies tailored for operational efficiency.</p>
                     </div>
-                    <a href="#" class="project-link">View Case Study &rarr;</a>
+                    <a href="operations.html" class="project-link">Explore Operations Projects &rarr;</a>
                 </div>
-
-                <!-- Project Card 2 -->
-                <div class="project-card">
-                    <div>
-                        <h3>Project Two Title</h3>
-                        <p>A comprehensive operations deep-dive detailing the integration frameworks, operational mechanics, and structural implementation of a multi-tiered system.</p>
-                    </div>
-                    <a href="#" class="project-link">View Case Study &rarr;</a>
-                </div>
-
-                <!-- Project Card 3 -->
-                <div class="project-card">
-                    <div>
-                        <h3>Project Three Title</h3>
-                        <p>An examination of strategic scaling methods, resource scoping, and documentation optimization used to enhance team alignment and deployment workflows.</p>
-                    </div>
-                    <a href="#" class="project-link">View Case Study &rarr;</a>
-                </div>
-
             </div>
         </main>
     </div>

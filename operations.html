@@ -23,7 +23,7 @@
             padding: 0;
         }
 
-        /* Nav (Matches homepage structure) */
+        /* Nav */
         nav {
             background-color: var(--card-bg);
             border-bottom: 1px solid var(--border);
@@ -88,6 +88,7 @@
         }
 
         .case-study h2 { margin-top: 0; font-size: 1.6rem; color: var(--text-main); }
+        .case-study .subtitle { color: var(--text-muted); font-size: 1rem; margin-top: -0.5rem; margin-bottom: 1rem; font-weight: 500; }
         
         /* Metadata/Tags Bar */
         .meta-tags {
@@ -108,7 +109,7 @@
 
         /* Core Sections */
         .study-section { margin-bottom: 1.5rem; }
-        .study-section h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05rem; }
+        .study-section h3 { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05rem; }
         .study-section p { margin: 0; color: #444; }
 
         /* Highlighted Metrics/Results Box */
@@ -118,9 +119,12 @@
             padding: 1rem 1.5rem;
             margin-top: 1.5rem;
             border-radius: 0 6px 6px 0;
+            display: flex;
+            gap: 2rem;
         }
-        .results-box h4 { margin: 0 0 0.25rem 0; color: var(--accent); font-size: 1rem; }
-        .results-box p { margin: 0; font-weight: 500; color: #1c3d5a; }
+        .metric-item { display: flex; flex-direction: column; }
+        .metric-val { font-size: 1.8rem; font-weight: 700; color: var(--accent); line-height: 1.2; }
+        .metric-label { font-size: 0.85rem; color: #1c3d5a; font-weight: 500; }
 
         footer { text-align: center; padding: 2rem 0; color: var(--text-muted); font-size: 0.85rem; }
     </style>
@@ -145,60 +149,96 @@
         <a href="index.html" class="back-link">&larr; Back to Home</a>
         
         <header>
-            <h1>Product Operations & Execution</h1>
+            <h1>Product Operations &amp; Execution</h1>
             <p>Showcasing frameworks, cross-functional infrastructure initiatives, and data-driven process optimization.</p>
         </header>
 
         <main>
             <!-- Case Study 1 -->
             <div class="case-study">
-                <h2>Process Automation & Scale Initiative</h2>
+                <h2>Scaling Global Operations Through a Volume Surge</h2>
+                <div class="subtitle">Cision &bull; Global Content Operations</div>
                 
                 <div class="meta-tags">
-                    <span class="tag">Process Mapping</span>
-                    <span class="tag">Cross-Functional Strategy</span>
-                    <span class="tag">Data Analytics</span>
+                    <span class="tag">Scaling Operations</span>
+                    <span class="tag">Global Teams</span>
+                    <span class="tag">Demand Management</span>
                 </div>
 
                 <div class="study-section">
-                    <h3>The Challenge</h3>
-                    <p>Briefly describe the operational bottleneck, complex coordination issues, or scaling friction the business faced here.</p>
-                </div>
-
-                <div class="study-section">
-                    <h3>The Strategy & Execution</h3>
-                    <p>Detail how you organized the framework, aligned teams, or mapped workflows to address the core problem systematically.</p>
+                    <h3>The Narrative</h3>
+                    <p>When demand for content operations at Cision surged by 820% — far beyond what existing capacity could absorb — I led the rapid scaling response. Recognizing that domestic resources alone couldn't close the gap quickly enough, I architected and built out a Philippines-based operations team, managing the full pipeline from hiring and onboarding to workflow integration. The result was a seamless capacity expansion that matched throughput to demand without sacrificing quality or delivery timelines — keeping operations running at full speed through one of the most intense growth periods the team had seen.</p>
                 </div>
 
                 <div class="results-box">
-                    <h4>Key Business Impact</h4>
-                    <p>Quantifiable outcome or structural improvement goes here (e.g., Reduced execution cycles by X% / Saved X hours per sprint).</p>
+                    <div class="metric-item">
+                        <span class="metric-val">820%</span>
+                        <span class="metric-label">Volume Increase</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val">Global</span>
+                        <span class="metric-label">Team Expansion</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Case Study 2 Template -->
+            <!-- Case Study 2 -->
             <div class="case-study">
-                <h2>Cross-Functional Alignment Framework</h2>
+                <h2>Delivering Maryland's Statewide COVID-19 Contact Tracing Platform</h2>
+                <div class="subtitle">Enovational &bull; Public Health Infrastructure</div>
                 
                 <div class="meta-tags">
-                    <span class="tag">Documentation</span>
-                    <span class="tag">Tool Integration</span>
-                    <span class="tag">Change Management</span>
+                    <span class="tag">Cross-Functional Delivery</span>
+                    <span class="tag">Stakeholder Management</span>
+                    <span class="tag">High-Stakes Programs</span>
                 </div>
 
                 <div class="study-section">
-                    <h3>The Challenge</h3>
-                    <p>Explain the misalignment, communications gaps, or legacy system dependencies that required an operational intervention.</p>
-                </div>
-
-                <div class="study-section">
-                    <h3>The Strategy & Execution</h3>
-                    <p>Explain the implementation of new playbooks, centralized data structures, or optimized feedback loops designed to streamline scaling efforts.</p>
+                    <h3>The Narrative</h3>
+                    <p>At the height of the COVID-19 pandemic, Maryland needed a reliable, scalable contact tracing platform — fast. I led the end-to-end delivery of covidLINK, coordinating across multiple state agencies, technical teams, and public health stakeholders under significant time pressure. The challenge wasn't just building the platform — it was navigating competing priorities, aligning diverse stakeholders on a unified approach, and ensuring the system was actually adopted in the field. covidLINK achieved 97% statewide adoption, making it one of the most successful public health technology deployments in the state's history and a model for rapid, cross-agency operational execution.</p>
                 </div>
 
                 <div class="results-box">
-                    <h4>Key Business Impact</h4>
-                    <p>Achieved 100% team adoption within the quarter, significantly accelerating delivery predictability across tracking metrics.</p>
+                    <div class="metric-item">
+                        <span class="metric-val">97%</span>
+                        <span class="metric-label">Statewide Adoption</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val">Multi-Agency</span>
+                        <span class="metric-label">Coordination</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="case-study">
+                <h2>Rolling Out AI Automation Across a 29-Plant Enterprise</h2>
+                <div class="subtitle">Mainstay &bull; AI SaaS &amp; Enterprise Operations</div>
+                
+                <div class="meta-tags">
+                    <span class="tag">AI Implementation</span>
+                    <span class="tag">Enterprise Rollout</span>
+                    <span class="tag">Revenue Impact</span>
+                </div>
+
+                <div class="study-section">
+                    <h3>The Narrative</h3>
+                    <p>When GREIF — a global industrial packaging company — signed on to deploy Mainstay's AI chatbot platform across its manufacturing operations, the implementation scope was substantial: 29 plants, diverse workforces, and a high bar for performance. I led the full rollout, managing everything from configuration and stakeholder alignment to go-live support across all sites. The deployment achieved a 74% autonomous resolution rate, meaning nearly three-quarters of employee inquiries were handled entirely by the AI without human escalation. Beyond operational performance, the engagement directly contributed to $1.5M in ARR — demonstrating that thoughtful, well-executed AI implementation delivers measurable business value at scale.</p>
+                </div>
+
+                <div class="results-box">
+                    <div class="metric-item">
+                        <span class="metric-val">74%</span>
+                        <span class="metric-label">Autonomous Resolution</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val">$1.5M</span>
+                        <span class="metric-label">ARR Contribution</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val">29</span>
+                        <span class="metric-label">Plants Deployed</span>
+                    </div>
                 </div>
             </div>
         </main>
